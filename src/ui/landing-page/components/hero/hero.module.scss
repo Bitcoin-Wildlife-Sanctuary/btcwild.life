@@ -1,0 +1,24 @@
+.heroContainer {
+  @apply w-full min-h-[calc(100vh_-_180px)] md:min-h-[40vh] xl:h-[calc(100vh_-_80px)] xl:min-h-[calc(100vh_-_80px)];
+  @apply bg-[url("../../../../images/pngs/hero-image-mobile.png")] md:bg-[url("../../../../images/pngs/hero-img-1.png")];
+  @apply bg-no-repeat bg-cover lg:bg-contain;
+  @apply pt-[200px] xl:pt-[200px]; 
+  @apply px-6; 
+  // @apply border border-red-500;
+
+  & .heading {
+    @apply text-white text-center text-[40px] xl:text-[64px] font-dmSansBold leading-[112.5%];
+  }
+
+  & .subText {
+    @apply text-bitcoinWildlifeGrey max-w-[753px] mx-auto text-center text-[20px] font-semibold leading-[160%];
+  }
+
+  & .heroContent {
+    @apply relative z-10 max-w-[874px] top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4;
+  }
+
+  & .imageContainer {
+    @apply absolute top-0 left-0 right-0 w-full h-full lg:h-auto;
+  }
+}

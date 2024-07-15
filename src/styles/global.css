@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "DMSansItalicVariableFont";
+  src: url("../fonts/DMSans-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "DMSansVariableFont";
+  src: url("../fonts/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DMSansBoldFont";
+  src: url("../fonts/DMSans-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "JuraVariableFont";
+  src: url("../fonts/Jura-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SwitzerVariable";
+  src: url("../fonts/Switzer-Variable.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SwitzerVariableItalic";
+  src: url("../fonts/Switzer-VariableItalic.ttf") format("truetype");
+}
+
+:root {
+  --dmsans-italic-font: DMSansItalicVariableFont;
+  --dmsans-font: DMSansVariableFont;
+  --dmsans-bold-font: DMSansBoldFont;
+  --jura-font: JuraVariableFont;
+  --switzer-font: SwitzerVariable;
+  --switzer-italic-font: SwitzerVariableItalic;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #16181c;
+  font-family: var(--jura-font);
+}
