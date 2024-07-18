@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mdx-js/react": "^3.0.1",
+    "@mdx-js/react": "^2.0.0",
     "@types/react-helmet": "^6.1.11",
     "autoprefixer": "^10.4.19",
     "clsx": "^2.1.1",
