@@ -1,0 +1,12 @@
+.howItWorksContainer {
+  @apply pt-[66px] pb-8 lg:pt-10 lg:pb-[52px];
+  @apply px-6 xl:pl-[166px] xl:pr-[202px];
+
+  .sectionImageContainer {
+    @apply min-h-full h-full;
+
+    & .honeyImage {
+      @apply w-full h-full xl:h-full;
+    }
+  }
+}

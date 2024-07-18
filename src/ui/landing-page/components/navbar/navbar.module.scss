@@ -1,0 +1,53 @@
+.navContainer {
+  @apply flex flex-col lg:flex-row lg:items-center justify-between;
+  @apply lg:gap-2;
+  @apply border-b border-bitcoinWildlifeNavBlack bg-bitcoinWildlifeNavBlack;
+  @apply py-6 px-4 lg:px-10;
+  @apply min-h-[88px];
+  transition: left right 0.2s ease-in-out;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  & .logoContainer {
+    @apply h-full w-full lg:w-auto flex justify-between;
+  }
+
+  &.isSticky {
+    @apply fixed pt-10 pb-6 lg:py-0 left-0 right-0 z-20;
+  }
+
+  & .quickLinks {
+    @apply hidden lg:flex lg:flex-row lg:items-center; 
+    @apply lg:h-auto;
+    @apply lg:gap-10 lg:scale-100;
+    @apply transition-all;
+    @apply overflow-hidden;
+  }
+}
+
+.hamburgerOutline {
+  @apply inline-block lg:hidden p-2 gap-2 rounded-sm bg-[#24262B];
+}
+
+/* mobile */
+.overlayContainer {
+  @apply lg:hidden;
+  @apply inset-0 absolute z-10 h-screen max-h-screen;
+  @apply transition-all;
+  @apply overflow-hidden;
+  // glassmorphic effect
+  @apply bg-[rgba(22,24,28,0.80)];
+  @apply backdrop-blur-[5px];
+  @apply shadow-[0_0_1rem_0_rgba(0,0,0,.2)];
+
+  & > .mobileNavContainer {
+    @apply flex flex-col py-6 px-4;
+    @apply gap-y-6;
+    @apply overflow-hidden; 
+    @apply border-b border-bitcoinWildlifeNavBlack bg-bitcoinWildlifeNavBlack;
+
+    & > .quickLinksMobile {
+      @apply flex flex-col gap-5 transition-all;
+    }
+  }
+}  

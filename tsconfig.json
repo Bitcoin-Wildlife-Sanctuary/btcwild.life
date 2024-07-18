@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",   
+    "lib": ["dom", "esnext"], 
+    "jsx": "react", 
+    "module": "esnext", 
+    // "rootDir": "./",                                  /* Specify the root folder within your source files. */
+    "moduleResolution": "node",  
+    "esModuleInterop": true, 
+    // "preserveSymlinks": true,           
+    "forceConsistentCasingInFileNames": true, 
+    /* Type Checking */
+    "strict": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["."],
+      "@ui/*": ["ui"]
+    }
+  },
+  "include": ["./src/**/*", "./gatsby-node.ts", "./gatsby-config.ts", "./plugins/**/*"]
+}

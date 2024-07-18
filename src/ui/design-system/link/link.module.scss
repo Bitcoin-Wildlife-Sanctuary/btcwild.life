@@ -1,0 +1,78 @@
+.ghost {
+  @apply w-full;
+  @apply inline-flex p-2 gap-2;
+  @apply items-center justify-center;
+  @apply text-white font-switzerFont text-base font-normal leading-[125%];
+  @apply hover:text-bitcoinWildlifeYellow;
+  @apply transition-all;
+  &:hover {
+    animation-name: dissolve;
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+  }
+}
+
+.outline {
+  @apply w-full;
+  @apply inline-flex py-2.5 px-4 gap-2;
+  @apply items-center justify-center;
+  @apply text-[#16181C] font-switzerFont text-base font-medium leading-[125%];
+  @apply rounded-sm border border-bitcoinWildlifeYellow bg-bitcoinWildlifeYellow;
+  @apply transition-all;
+
+  @apply hover:rounded-sm hover:border-[#FBFF69] hover:bg-[#DEE244];
+}
+
+.inverted {
+  @apply inline-flex p-2 gap-2;
+  @apply bg-bitcoinWildlifeYellow;
+  @apply rounded-md;
+  @apply hover:bg-white;
+  &:hover {
+    animation-name: dissolve;
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+  }
+}
+
+.communityLink {
+  @apply w-full gap-2 inline-flex h-auto items-center justify-center;
+  @apply rounded-md;
+  @apply bg-bitcoinWildlifeYellow;
+  @apply hover:bg-white;
+
+  &:hover {
+    animation-name: dissolve;
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+    svg {
+      @apply rotate-[300deg];
+    }
+  }
+}
+
+.hero {
+  @apply gap-2 flex items-center justify-center w-full lg:w-auto;
+  @apply py-4 px-12;
+  @apply rounded-sm;
+  @apply bg-bitcoinWildlifeYellow text-bitcoinWildlifeBgBlack;
+  @apply font-jura text-xl font-bold leading-[120%];
+
+  @apply hover:rounded-sm hover:border hover:border-[#FCFF9E] hover:bg-[#DEE244] hover:shadow-[0px_8px_16px_0px_rgba(251,255,105,0.10)];
+
+  &:hover {
+    @apply transition-all;
+    svg {
+      // @apply translate-x-3;
+    }
+  }
+}
+
+@keyframes dissolve {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
+  }
+}
