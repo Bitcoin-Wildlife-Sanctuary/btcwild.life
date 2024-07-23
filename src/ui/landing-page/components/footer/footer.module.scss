@@ -1,0 +1,8 @@
+.footerContainer {
+    @apply  rounded-tl-[64px] rounded-tr-[64px] bg-[#121316];
+    @apply px-6 xl:px-52 py-16 lg:gap-20;
+
+    .subText {
+        @apply text-bitcoinWildlifeGrey font-jura text-base font-semibold leading-[150%];
+    }
+}

@@ -1,0 +1,9 @@
+.defaultCard {
+    @apply p-4 gap-2 rounded border border-[#121316] bg-[#121316];
+    @apply hover:border hover:border-[#24262B] hover:bg-[#181A1D];
+    @apply transition-all;
+}
+
+.communityCard {
+    @apply p-4 gap-4 rounded-lg border border-[#121316] bg-[#121316] h-full;
+}

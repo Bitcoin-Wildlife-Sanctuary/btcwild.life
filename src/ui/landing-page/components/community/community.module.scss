@@ -1,0 +1,11 @@
+.communityContainer {
+    @apply relative;
+    @apply pt-8 lg:pt-[52px] pb-32;
+    @apply px-6 xl:px-[198px];
+
+    & .communitySection {
+        @apply relative;
+        @apply -mt-[88%] md:-mt-[40%] lg:-mt-[30%] xl:-mt-[30%];
+        @apply z-10;
+    }
+}
