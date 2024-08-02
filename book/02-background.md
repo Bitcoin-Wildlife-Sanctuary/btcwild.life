@@ -1,0 +1,9 @@
+## Background
+
+Bitcoin Script, the native programming language on Bitcoin, is Turing-incomplete. However, its constraints foster innovation, allowing Bitcoin developers to build complex mechanisms even with a limited set of tools. Even small changes to Bitcoin can have serious effects on the overall functionality of the network, with many strategies going undiscovered for years (e.g., the publication of the BitVM paper in 2023 after the Taproot upgrade in 2021).
+
+Bitcoin, in its current form, cannot scale to support billions of users. Offboarding execution to cheaper, and sometimes more expressive, environments is a scaling strategy that allows Bitcoin to see greater adoption without overhauling its core structure. Thus, Bitcoin serves as a base layer for various execution environments. Tools such as covenants and validity proofs address custody and state validation concerns, respectively.
+
+One of the experimental areas in Bitcoin Script is the use of new opcodes, such as OP_CAT. Various proposed opcodes can enable covenants, but OP_CAT is seen as a most simple activation as it was already activated in the original Bitcoin software. OP_CAT, which concatenates two stack items, was removed from Bitcoin Script early on due to security concerns but has seen renewed interest as developers explore its potential applications.
+
+One of those applications is improved bridging modules for second layer protocols. Bitcoin Wildlife is currently working on designs that would enable recursive covenants and a STARK verifier directly in Script for the purpose of creating trustless two-way pegs for second layer protocols.

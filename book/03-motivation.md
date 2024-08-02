@@ -1,0 +1,5 @@
+## Motivation
+
+The Bitcoin Wildlife Conservatorium exists as a hub for research and experimentation with advanced Bitcoin Script functionalities, covenants, experimental opcodes, and cryptographic proofs such as STARKs/SNARKs. This collection of repositories represents a concerted effort to push the boundaries of Bitcoin’s scripting capabilities and cryptographic applications. By experimenting with new opcodes, arithmetic operations, and advanced proof systems, we aim to uncover novel ways to extend Bitcoin’s utility while maintaining its security and decentralization principles.
+
+Our motivation is driven by the need to enhance Bitcoin's scalability, security, and functionality. By developing and testing these advanced mechanisms, we seek to contribute to the long-term robustness and adoption of the Bitcoin network. This involves not only advancing technical knowledge but also fostering a community of developers and researchers dedicated to Bitcoin’s evolution.
