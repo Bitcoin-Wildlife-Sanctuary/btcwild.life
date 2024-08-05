@@ -1,2 +1,3 @@
 # btcwild.life
-Bitcoin Wildlife Conservatorium website
+
+Welcome to the project. For detailed documentation, check out our [Book](./book/index.md).
