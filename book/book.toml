@@ -1,0 +1,10 @@
+[book]
+authors = ["Abdel @ StarkWare"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Bitcoin Wildlife Sanctuary"
+
+[output.html]
+git-repository-url = "https://github.com/Bitcoin-Wildlife-Sanctuary/btcwild.life"
+edit-url-template = "https://github.com/Bitcoin-Wildlife-Sanctuary/btcwild.life/edit/main/{path}"
