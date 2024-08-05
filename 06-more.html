@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>More - Bitcoin Wildlife Sanctuary</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="01-introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="02-background.html"><strong aria-hidden="true">2.</strong> Background</a></li><li class="chapter-item expanded "><a href="03-motivation.html"><strong aria-hidden="true">3.</strong> Motivation</a></li><li class="chapter-item expanded "><a href="04-outcomes.html"><strong aria-hidden="true">4.</strong> Outcome</a></li><li class="chapter-item expanded "><a href="05-bitcoin-circle-stark.html"><strong aria-hidden="true">5.</strong> Bitcoin Circle STARK</a></li><li class="chapter-item expanded "><a href="06-more.html" class="active"><strong aria-hidden="true">6.</strong> More</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Bitcoin Wildlife Sanctuary</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Bitcoin-Wildlife-Sanctuary/btcwild.life" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/Bitcoin-Wildlife-Sanctuary/btcwild.life/edit/main/src/06-more.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="other-repositories"><a class="header" href="#other-repositories">Other repositories</a></h2>
+<p>Developers are also welcome to contribute to the following repositories to support the Bitcoin Wildlife project.</p>
+<h3 id="1-covenants-and-experimental-opcodes"><a class="header" href="#1-covenants-and-experimental-opcodes">1. Covenants and Experimental Opcodes</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/covenants-gadgets">covenants-gadgets</a></code></strong>: Gadgets for covenants: Schnorr trick and txid reflection.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/covenants-examples">covenants-examples</a></code></strong>: Examples of covenants in Bitcoin script.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/catnet">catnet</a></code></strong>: Custom Bitcoin signet with OP_CAT enabled, used to test the implementation of Bitcoin Circle STARK Verifier.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/rust-bitcoin-m31-with-muldiv">rust-bitcoin-m31-with-muldiv</a></code></strong>: Arithmetic over the M31 field assuming OP_MUL and OP_DIV in Bitcoin Script.</li>
+</ul>
+<h3 id="2-bitcoin-friendly-cryptography"><a class="header" href="#2-bitcoin-friendly-cryptography">2. Bitcoin-friendly Cryptography</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/bitcoin-circle-stark">bitcoin-circle-stark</a></code></strong>: Building blocks of a Circle STARK verifier in Bitcoin script.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/catgolfing">catgolfing</a></code></strong>: Bitcoin Circle Stark performance contest.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/stwo">stwo</a></code></strong>: A fork of stwo for Bitcoin-friendly proof systems.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/stwo-bedd93">stwo-bedd93</a></code></strong>: A fork of stwo for Bitcoin-friendly proof systems (archived).</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/rust-bitcoin-m31">rust-bitcoin-m31</a></code></strong>: Arithmetic over the M31 or BabyBear field in Bitcoin Script.</li>
+</ul>
+<h3 id="3-general-cryptography"><a class="header" href="#3-general-cryptography">3. General Cryptography</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/r1cs-to-circle-plonk">r1cs-to-circle-plonk</a></code></strong>: A transpiler, prover, and verifier for proving R1CS in Circle Plonk.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/circle-plonk">circle-plonk</a></code></strong>: Using stwo to implement a Plonk prover and verifier over Circle STARK.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/circom-compat">circom-compat</a></code></strong>: Arkworks bindings to Circom's R1CS, for Groth16 Proof and Witness generation in Rust.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/circom">circom</a></code></strong>: zkSnark circuit compiler.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/r1cs-std">r1cs-std</a></code></strong>: R1CS constraints for bits, fields, and elliptic curves.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/fri-study">fri-study</a></code></strong>: Study and implementation of the FRI (Fast Reed-Solomon Interactive Oracle Proofs of Proximity) protocol in Rust.</li>
+</ul>
+<h3 id="4-bitcoin-script-in-rust"><a class="header" href="#4-bitcoin-script-in-rust">4. Bitcoin Script in Rust</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/rust-bitcoin-scriptexec">rust-bitcoin-scriptexec</a></code></strong>: Bitcoin Script interpreter implemented in Rust.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/rust-bitcoin-script">rust-bitcoin-script</a></code></strong>: Inline Bitcoin scripts in Rust.</li>
+</ul>
+<h3 id="5-development-tooling-or-miscellaneous"><a class="header" href="#5-development-tooling-or-miscellaneous">5. Development Tooling or Miscellaneous</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/bitcoin-simulator">bitcoin-simulator</a></code></strong>: A simulator of a local Bitcoin testnet based on Rust and SQLite.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/reuse-bitcoin-pow-gadgets">reuse-bitcoin-pow-gadgets</a></code></strong>: Gadgets that navigate how to leverage the BTC consensus for PoW security.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="05-bitcoin-circle-stark.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="05-bitcoin-circle-stark.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

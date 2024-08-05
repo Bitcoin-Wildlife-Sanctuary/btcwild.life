@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bitcoin Wildlife Sanctuary</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="01-introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="02-background.html"><strong aria-hidden="true">2.</strong> Background</a></li><li class="chapter-item expanded "><a href="03-motivation.html"><strong aria-hidden="true">3.</strong> Motivation</a></li><li class="chapter-item expanded "><a href="04-outcomes.html"><strong aria-hidden="true">4.</strong> Outcome</a></li><li class="chapter-item expanded "><a href="05-bitcoin-circle-stark.html"><strong aria-hidden="true">5.</strong> Bitcoin Circle STARK</a></li><li class="chapter-item expanded "><a href="06-more.html"><strong aria-hidden="true">6.</strong> More</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Bitcoin Wildlife Sanctuary</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/Bitcoin-Wildlife-Sanctuary/btcwild.life" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="intro"><a class="header" href="#intro">Intro</a></h2>
+<p>In this docs site you’ll find background information on the Bitcoin Wildlife Conservatorium project, its current focus areas, and how you can contribute.</p>
+<p>Bitcoin Wildlife is a community project focused on developing, testing and iterating on primitives in Bitcoin Script with the introduction of OP_CAT. All implementations are tested on Catnet, a fork of Signet with OP_CAT activated that features a Circle STARK Verifier directly in Script.</p>
+<p>Developers and researchers who are interested in showcasing why OP_CAT should, or shouldn’t, be activated on Bitcoin are invited to contribute to this project.</p>
+<p>Developers and researchers are also invited to apply for a grant from the [insert fund name] for their work on OP_CAT R&amp;D.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="background"><a class="header" href="#background">Background</a></h2>
+<p>Bitcoin Script, the native programming language on Bitcoin, is Turing-incomplete. However, its constraints foster innovation, allowing Bitcoin developers to build complex mechanisms even with a limited set of tools. Even small changes to Bitcoin can have serious effects on the overall functionality of the network, with many strategies going undiscovered for years (e.g., the publication of the BitVM paper in 2023 after the Taproot upgrade in 2021).</p>
+<p>Bitcoin, in its current form, cannot scale to support billions of users. Offboarding execution to cheaper, and sometimes more expressive, environments is a scaling strategy that allows Bitcoin to see greater adoption without overhauling its core structure. Thus, Bitcoin serves as a base layer for various execution environments. Tools such as covenants and validity proofs address custody and state validation concerns, respectively.</p>
+<p>One of the experimental areas in Bitcoin Script is the use of new opcodes, such as OP_CAT. Various proposed opcodes can enable covenants, but OP_CAT is seen as the most simple activation as it was already activated in the original Bitcoin software. OP_CAT, which concatenates two stack items, was removed from Bitcoin Script early on due to security concerns but has seen renewed interest as developers explore its potential applications.</p>
+<p>One of those applications is improved bridging modules for second layer protocols. Bitcoin Wildlife is currently working on designs that would enable recursive covenants and a STARK verifier directly in Script for the purpose of creating trustless two-way pegs for second layer protocols.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="motivation"><a class="header" href="#motivation">Motivation</a></h2>
+<p>The Bitcoin Wildlife Conservatorium exists as a hub for research and experimentation with advanced Bitcoin Script functionalities, covenants, experimental opcodes, and cryptographic proofs such as STARKs/SNARKs. This collection of repositories represents a concerted effort to push the boundaries of Bitcoin’s scripting capabilities and cryptographic applications. By experimenting with new opcodes, arithmetic operations, and advanced proof systems, we aim to uncover novel ways to extend Bitcoin’s utility while maintaining its security and decentralization principles.</p>
+<p>Our motivation is driven by the need to enhance Bitcoin's scalability, security, and functionality. By developing and testing these advanced mechanisms, we seek to contribute to the long-term robustness and adoption of the Bitcoin network. This involves not only advancing technical knowledge but also fostering a community of developers and researchers dedicated to Bitcoin’s evolution.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="outcomes"><a class="header" href="#outcomes">Outcomes</a></h2>
+<p>The desired outcome of this initiative is to consolidate the knowledge and tools necessary to evaluate and implement experimental Bitcoin features. By rigorously testing and documenting these advancements, we seek to provide the Bitcoin development community with a clearer understanding of the potential risks and benefits associated with these experimental features.</p>
+<p>Ultimately, this body of work aims to inform the broader discussion on Bitcoin's evolution, offering a repository of tested ideas and implementations that can be referenced for future upgrades or soft forks. In doing so, we hope to ensure that any enhancements to Bitcoin are made with a comprehensive understanding of their implications, paving the way for more secure, scalable, and innovative applications on the network.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="bitcoin-circle-stark"><a class="header" href="#bitcoin-circle-stark">Bitcoin Circle STARK</a></h2>
+<h3 id="introduction"><a class="header" href="#introduction">Introduction</a></h3>
+<p>Bitcoin Circle STARK includes Bitcoin script implementations of various cryptographic primitives for STARK.</p>
+<p>Essentially, it's a collection of building blocks of a Circle STARK verifier in Bitcoin script.</p>
+<p>As outlined in the Motivation section, a Circle STARK verifier enables Bitcoin to support true second layer protocols where users are guaranteed a right to exit.</p>
+<p>To contribute to this repository, please see this GitHub repo and join our community telegram chat.</p>
+<p>For reference, see the <a href="https://eprint.iacr.org/2024/278.pdf">Circle STARKs paper</a>.</p>
+<h3 id="primitives"><a class="header" href="#primitives">Primitives</a></h3>
+<h4 id="m31-cm31-qm31-circle-point"><a class="header" href="#m31-cm31-qm31-circle-point">M31, CM31, QM31, Circle Point</a></h4>
+<p>Implementation of add, sub, mul of Mersenne-31 (M31), its complex extension (CM31), and its degree-4 extension (QM31), which is imported from <a href="https://github.com/BitVM/rust-bitcoin-m31-or-babybear">BitVM/rust-bitcoin-m31-or-babybear</a>.</p>
+<h4 id="circlepoint-over-qm31"><a class="header" href="#circlepoint-over-qm31">CirclePoint over QM31</a></h4>
+<p>Implementation of doubling of a circle point over QM31.</p>
+<p>Implementation of drawing a random point on the circle over QM31, useful for Order-Optimal Data Structures (OODS).</p>
+<h4 id="fiat-shamir-transcript"><a class="header" href="#fiat-shamir-transcript">Fiat-Shamir Transcript</a></h4>
+<p>Also known as "channel," which is the term used in Starkware's <a href="https://github.com/starkware-libs/stwo">stwo library</a>.</p>
+<p>Absorbing commitments and QM31 elements through <code>OP_CAT + OP_SHA256</code>.</p>
+<p>Squeezing random elements for Fiat-Shamir transform using hints and <code>OP_CAT + OP_SHA256</code>.</p>
+<h4 id="proof-of-work-check"><a class="header" href="#proof-of-work-check">Proof-of-Work Check</a></h4>
+<p>Calculating a proof-of-work nonce for the "channel", based on specified security bits.</p>
+<p>Verifying the proof-of-work nonce and computing the new "channel" state.</p>
+<h4 id="merkle-tree"><a class="header" href="#merkle-tree">Merkle Tree</a></h4>
+<p>Implementation of Merkle path verification using hints and <code>OP_CAT + OP_SHA256</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="other-repositories"><a class="header" href="#other-repositories">Other repositories</a></h2>
+<p>Developers are also welcome to contribute to the following repositories to support the Bitcoin Wildlife project.</p>
+<h3 id="1-covenants-and-experimental-opcodes"><a class="header" href="#1-covenants-and-experimental-opcodes">1. Covenants and Experimental Opcodes</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/covenants-gadgets">covenants-gadgets</a></code></strong>: Gadgets for covenants: Schnorr trick and txid reflection.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/covenants-examples">covenants-examples</a></code></strong>: Examples of covenants in Bitcoin script.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/catnet">catnet</a></code></strong>: Custom Bitcoin signet with OP_CAT enabled, used to test the implementation of Bitcoin Circle STARK Verifier.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/rust-bitcoin-m31-with-muldiv">rust-bitcoin-m31-with-muldiv</a></code></strong>: Arithmetic over the M31 field assuming OP_MUL and OP_DIV in Bitcoin Script.</li>
+</ul>
+<h3 id="2-bitcoin-friendly-cryptography"><a class="header" href="#2-bitcoin-friendly-cryptography">2. Bitcoin-friendly Cryptography</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/bitcoin-circle-stark">bitcoin-circle-stark</a></code></strong>: Building blocks of a Circle STARK verifier in Bitcoin script.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/catgolfing">catgolfing</a></code></strong>: Bitcoin Circle Stark performance contest.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/stwo">stwo</a></code></strong>: A fork of stwo for Bitcoin-friendly proof systems.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/stwo-bedd93">stwo-bedd93</a></code></strong>: A fork of stwo for Bitcoin-friendly proof systems (archived).</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/rust-bitcoin-m31">rust-bitcoin-m31</a></code></strong>: Arithmetic over the M31 or BabyBear field in Bitcoin Script.</li>
+</ul>
+<h3 id="3-general-cryptography"><a class="header" href="#3-general-cryptography">3. General Cryptography</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/r1cs-to-circle-plonk">r1cs-to-circle-plonk</a></code></strong>: A transpiler, prover, and verifier for proving R1CS in Circle Plonk.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/circle-plonk">circle-plonk</a></code></strong>: Using stwo to implement a Plonk prover and verifier over Circle STARK.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/circom-compat">circom-compat</a></code></strong>: Arkworks bindings to Circom's R1CS, for Groth16 Proof and Witness generation in Rust.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/circom">circom</a></code></strong>: zkSnark circuit compiler.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/r1cs-std">r1cs-std</a></code></strong>: R1CS constraints for bits, fields, and elliptic curves.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/fri-study">fri-study</a></code></strong>: Study and implementation of the FRI (Fast Reed-Solomon Interactive Oracle Proofs of Proximity) protocol in Rust.</li>
+</ul>
+<h3 id="4-bitcoin-script-in-rust"><a class="header" href="#4-bitcoin-script-in-rust">4. Bitcoin Script in Rust</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/rust-bitcoin-scriptexec">rust-bitcoin-scriptexec</a></code></strong>: Bitcoin Script interpreter implemented in Rust.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/rust-bitcoin-script">rust-bitcoin-script</a></code></strong>: Inline Bitcoin scripts in Rust.</li>
+</ul>
+<h3 id="5-development-tooling-or-miscellaneous"><a class="header" href="#5-development-tooling-or-miscellaneous">5. Development Tooling or Miscellaneous</a></h3>
+<ul>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/bitcoin-simulator">bitcoin-simulator</a></code></strong>: A simulator of a local Bitcoin testnet based on Rust and SQLite.</li>
+<li><strong><code><a href="https://github.com/Bitcoin-Wildlife-Sanctuary/reuse-bitcoin-pow-gadgets">reuse-bitcoin-pow-gadgets</a></code></strong>: Gadgets that navigate how to leverage the BTC consensus for PoW security.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
